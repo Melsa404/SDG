@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardians of the SDG Galaxy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intro Screen -->
+    <div id="intro-screen" class="screen active">
+        <div class="intro-container">
+            <div class="title-glow">
+                <h1 class="main-title">Guardians of the SDG Galaxy</h1>
+            </div>
+            <p class="intro-text">
+                Welcome to the Galaxy, Explorer! The planets are in danger and only you can save them using real NASA data.
+                Work as a team, unlock badges, and become a Guardian of the Galaxy!
+            </p>
+            
+            <div class="planet-cards">
+                <div class="planet-card verde">
+                    <h3>🌍 Planet Verde</h3>
+                    <p>Climate Action Challenge</p>
+                    <small>Help cool down the fevered world using NASA temperature data</small>
+                </div>
+                <div class="planet-card aqua">
+                    <h3>💧 Planet Aqua</h3>
+                    <p>Clean Water Mission</p>
+                    <small>Restore water balance using NASA rainfall and soil moisture maps</small>
+                </div>
+            </div>
+
+            <div class="start-section">
+                <input type="text" id="player-name" placeholder="Enter your Guardian name..." class="name-input">
+                <button id="start-btn" class="start-button" disabled>Start Mission</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Galaxy Map Screen -->
+    <div id="galaxy-screen" class="screen">
+        <div class="galaxy-container">
+            <div class="galaxy-header">
+                <h2>Choose Your Mission</h2>
+                <div class="player-info">
+                    <span id="player-display"></span>
+                    <span id="score-display">Score: 0</span>
+                    <button id="leaderboard-btn" class="leaderboard-button">Leaderboard</button>
+                </div>
+            </div>
+            
+            <div class="galaxy-map">
+                <div class="planet planet-verde" id="planet-verde">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface"></div>
+                    <div class="planet-label">Planet Verde</div>
+                </div>
+                <div class="planet planet-aqua" id="planet-aqua">
+                    <div class="planet-glow"></div>
+                    <div class="planet-surface"></div>
+                    <div class="planet-label">Planet Aqua</div>
+                </div>
+            </div>
+
+            <div class="badges-section">
+                <h3>Your Badges</h3>
+                <div id="badges-container" class="badges-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Planet Description Screen -->
+    <div id="planet-description-screen" class="screen">
+        <div class="planet-description-container">
+            <div class="planet-header">
+                <button id="back-from-description" class="back-button">← Back to Galaxy</button>
+                <h2 id="planet-description-title"></h2>
+            </div>
+            
+            <div class="planet-description-content">
+                <div class="planet-visual">
+                    <div id="planet-description-visual" class="planet-large">
+                        <div class="planet-halo"></div>
+                        <div class="planet-surface-large"></div>
+                        <div class="planet-atmosphere"></div>
+                    </div>
+                </div>
+                
+                <div class="description-text">
+                    <div id="planet-mission-description"></div>
+                    <div class="mission-objectives">
+                        <h3>🎯 Mission Objectives:</h3>
+                        <ul id="mission-objectives-list"></ul>
+                    </div>
+                    <div class="rewards-info">
+                        <h3>🏆 Rewards:</h3>
+                        <p>• Earn ⭐ stickers for each correct answer</p>
+                        <p>• Get ALL answers correct to earn a special badge!</p>
+                        <p>• Climb the leaderboard with your score</p>
+                    </div>
+                    <button id="start-mission-btn" class="start-mission-button">Start Mission</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Planet Verde Screen -->
+    <div id="verde-screen" class="screen">
+        <div class="planet-container">
+            <div class="planet-header">
+                <button id="back-from-verde" class="back-button">← Back to Galaxy</button>
+                <h2>🌍 Planet Verde - Climate Action</h2>
+            </div>
+            
+            <div class="nasa-data">
+                <h3>NASA Climate Data</h3>
+                <p>Explore real NASA temperature and climate data:</p>
+                <a href="https://climate.nasa.gov/evidence/" target="_blank" class="nasa-link">NASA Climate Evidence</a>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Climate Challenge Quiz</h3>
+                <div id="verde-quiz" class="quiz-container">
+                    <div class="question">
+                        <p><strong>Question 1:</strong> What is the main greenhouse gas causing climate change?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="correct"> Carbon Dioxide (CO₂)</label>
+                            <label><input type="radio" name="q1" value="wrong"> Oxygen (O₂)</label>
+                            <label><input type="radio" name="q1" value="wrong"> Nitrogen (N₂)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>Question 2:</strong> Which renewable energy source is most abundant?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="wrong"> Wind</label>
+                            <label><input type="radio" name="q2" value="correct"> Solar</label>
+                            <label><input type="radio" name="q2" value="wrong"> Hydroelectric</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>Question 3:</strong> What percentage of global emissions come from transportation?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="wrong"> 10%</label>
+                            <label><input type="radio" name="q3" value="correct"> 16%</label>
+                            <label><input type="radio" name="q3" value="wrong"> 25%</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="submit-verde" class="submit-button">Submit Answers</button>
+                <div id="verde-results" class="results-section"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Planet Aqua Screen -->
+    <div id="aqua-screen" class="screen">
+        <div class="planet-container">
+            <div class="planet-header">
+                <button id="back-from-aqua" class="back-button">← Back to Galaxy</button>
+                <h2>💧 Planet Aqua - Clean Water</h2>
+            </div>
+            
+            <div class="nasa-data">
+                <h3>NASA Water Data</h3>
+                <p>Explore real NASA water and precipitation data:</p>
+                <a href="https://gpm.nasa.gov/data" target="_blank" class="nasa-link">NASA Precipitation Data</a>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Water Conservation Quiz</h3>
+                <div id="aqua-quiz" class="quiz-container">
+                    <div class="question">
+                        <p><strong>Question 1:</strong> What percentage of Earth's water is freshwater?</p>
+                        <div class="options">
+                            <label><input type="radio" name="aq1" value="wrong"> 10%</label>
+                            <label><input type="radio" name="aq1" value="wrong"> 5%</label>
+                            <label><input type="radio" name="aq1" value="correct"> 2.5%</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>Question 2:</strong> Which activity uses the most water globally?</p>
+                        <div class="options">
+                            <label><input type="radio" name="aq2" value="correct"> Agriculture</label>
+                            <label><input type="radio" name="aq2" value="wrong"> Industry</label>
+                            <label><input type="radio" name="aq2" value="wrong"> Domestic use</label>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p><strong>Question 3:</strong> How many people lack access to clean water?</p>
+                        <div class="options">
+                            <label><input type="radio" name="aq3" value="wrong"> 1 billion</label>
+                            <label><input type="radio" name="aq3" value="correct"> 2 billion</label>
+                            <label><input type="radio" name="aq3" value="wrong"> 3 billion</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="submit-aqua" class="submit-button">Submit Answers</button>
+                <div id="aqua-results" class="results-section"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboard-screen" class="screen">
+        <div class="leaderboard-container">
+            <div class="leaderboard-header">
+                <button id="back-from-leaderboard" class="back-button">← Back to Galaxy</button>
+                <h2>🏆 Galaxy Leaderboard</h2>
+            </div>
+            
+            <div id="leaderboard-list" class="leaderboard-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

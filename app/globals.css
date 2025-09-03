@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to space-themed color palette for galaxy game */
+  --background: #0a0a0f; /* Deep space background */
+  --foreground: #ffffff; /* Bright white text for contrast */
+  --card: #1a1a2e; /* Dark card background with slight blue tint */
+  --card-foreground: #ffffff; /* White text on cards */
+  --popover: #16213e; /* Darker blue for popovers */
+  --popover-foreground: #ffffff; /* White text in popovers */
+  --primary: #4f46e5; /* Cosmic purple for primary actions */
+  --primary-foreground: #ffffff; /* White text for primary buttons */
+  --secondary: #06b6d4; /* Cyan accent for secondary actions */
+  --secondary-foreground: #ffffff; /* White text for secondary buttons */
+  --muted: #1e293b; /* Muted dark blue-gray */
+  --muted-foreground: #94a3b8; /* Light gray for muted text */
+  --accent: #10b981; /* Green accent for achievements/badges */
+  --accent-foreground: #ffffff; /* White text for accent elements */
+  --destructive: #ef4444; /* Red for errors */
+  --destructive-foreground: #ffffff; /* White text for destructive actions */
+  --border: #334155; /* Subtle border color */
+  --input: #1e293b; /* Input field background */
+  --ring: #4f46e5; /* Focus ring color matching primary */
+  --chart-1: #4f46e5; /* Primary chart color */
+  --chart-2: #06b6d4; /* Secondary chart color */
+  --chart-3: #10b981; /* Tertiary chart color */
+  --chart-4: #f59e0b; /* Quaternary chart color */
+  --chart-5: #ef4444; /* Quinary chart color */
+  --radius: 0.75rem; /* Slightly more rounded for modern look */
+  --sidebar: #0f172a; /* Very dark sidebar */
+  --sidebar-foreground: #ffffff; /* White sidebar text */
+  --sidebar-primary: #4f46e5; /* Primary color for sidebar actions */
+  --sidebar-primary-foreground: #ffffff; /* White text for sidebar primary actions */
+  --sidebar-accent: #06b6d4; /* Cyan accent for sidebar */
+  --sidebar-accent-foreground: #ffffff; /* White text for sidebar accent */
+  --sidebar-border: #334155; /* Border color for sidebars */
+  --sidebar-ring: #4f46e5; /* Focus ring color for sidebars */
+}
+
+.dark {
+  --background: #000000; /* Pure black for dark mode */
+  --foreground: #ffffff; /* Pure white text */
+  --card: #0f0f23; /* Even darker cards */
+  --card-foreground: #ffffff; /* White text on cards */
+  --popover: #0f172a; /* Very dark popover */
+  --popover-foreground: #ffffff; /* White text in popovers */
+  --primary: #6366f1; /* Slightly brighter purple */
+  --primary-foreground: #ffffff; /* White text for primary buttons */
+  --secondary: #0891b2; /* Darker cyan for dark mode */
+  --secondary-foreground: #ffffff; /* White text for secondary buttons */
+  --muted: #0f172a; /* Very dark muted */
+  --muted-foreground: #64748b; /* Darker muted text */
+  --accent: #059669; /* Darker green accent */
+  --accent-foreground: #ffffff; /* White text for accent elements */
+  --destructive: #dc2626; /* Darker red */
+  --destructive-foreground: #ffffff; /* White text for destructive actions */
+  --border: #1e293b; /* Darker border */
+  --input: #0f172a; /* Darker input background */
+  --ring: #6366f1; /* Brighter focus ring */
+  --chart-1: #6366f1; /* Adjusted chart colors for dark mode */
+  --chart-2: #0891b2;
+  --chart-3: #059669;
+  --chart-4: #d97706;
+  --chart-5: #dc2626;
+  --sidebar: #000000; /* Pure black sidebar */
+  --sidebar-foreground: #ffffff; /* White sidebar text */
+  --sidebar-primary: #6366f1; /* Brighter primary for sidebar */
+  --sidebar-primary-foreground: #ffffff; /* White text for sidebar primary */
+  --sidebar-accent: #0891b2; /* Darker cyan accent for sidebar */
+  --sidebar-accent-foreground: #ffffff; /* White text for sidebar accent */
+  --sidebar-border: #1e293b; /* Darker border for sidebars */
+  --sidebar-ring: #6366f1; /* Brighter focus ring for sidebars */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom animations for space theme */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.6);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}

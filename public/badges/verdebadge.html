@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verde Badge</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+        }
+
+        .badge-container {
+            position: relative;
+            width: 192px;
+            height: 192px;
+            margin: 0 auto;
+        }
+
+        .background-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .stars-container {
+            position: absolute;
+            inset: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .orbiting-satellite {
+            position: absolute;
+            inset: 0;
+        }
+
+        .satellite {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #d1d5db;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            top: 20%;
+            left: 50%;
+            transform-origin: 0 60px;
+            animation: orbit 8s linear infinite;
+        }
+
+        .hexagon-badge {
+            position: absolute;
+            inset: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hexagon-outer {
+            position: relative;
+            width: 128px;
+            height: 144px;
+            background: linear-gradient(135deg, #4ade80, #16a34a);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.7);
+            transition: transform 0.5s ease;
+        }
+
+        .hexagon-outer:hover {
+            transform: scale(1.05);
+        }
+
+        .hexagon-inner {
+            position: absolute;
+            inset: 2px;
+            background: linear-gradient(135deg, #111827, #14532d);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .badge-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            padding: 0 16px;
+        }
+
+        .climate-text {
+            font-size: 10px;
+            color: #86efac;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .hero-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(to bottom, #bbf7d0, #4ade80);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .defender-text {
+            font-size: 10px;
+            color: #86efac;
+            margin-top: 4px;
+        }
+
+        .level-ribbon {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 48px;
+            height: 48px;
+            overflow: hidden;
+        }
+
+        .ribbon-inner {
+            position: absolute;
+            top: 12px;
+            right: 24px;
+            width: 64px;
+            height: 24px;
+            background: linear-gradient(to right, #22c55e, #16a34a);
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ribbon-text {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+            transform: rotate(-45deg);
+        }
+
+        .floating-planet {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4ade80, #16a34a);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        .decorative-leaf {
+            position: absolute;
+            width: 12px;
+            height: 16px;
+            background: #22c55e;
+            opacity: 0.8;
+        }
+
+        .leaf-1 {
+            top: 32px;
+            left: 32px;
+            border-radius: 50% 0;
+            transform: rotate(45deg);
+        }
+
+        .leaf-2 {
+            bottom: 32px;
+            right: 32px;
+            border-radius: 50% 0;
+            transform: rotate(225deg);
+        }
+
+        .confetti-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: confetti-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes confetti-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="badge-container">
+        <!-- Background glow -->
+        <div class="background-glow"></div>
+
+        <!-- Animated stars -->
+        <div class="stars-container" id="starsContainer"></div>
+
+        <!-- Orbiting satellite -->
+        <div class="orbiting-satellite">
+            <div class="satellite"></div>
+        </div>
+
+        <!-- Main hexagonal badge -->
+        <div class="hexagon-badge">
+            <div class="hexagon-outer">
+                <div class="hexagon-inner">
+                    <!-- Badge content -->
+                    <div class="badge-content">
+                        <div class="climate-text">Climate</div>
+                        <div class="hero-text">HERO</div>
+                        <div class="defender-text">Defender</div>
+                    </div>
+                </div>
+
+                <!-- Level ribbon -->
+                <div class="level-ribbon">
+                    <div class="ribbon-inner">
+                        <span class="ribbon-text">L3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating planet -->
+        <div class="floating-planet"></div>
+
+        <!-- Decorative leaves -->
+        <div class="decorative-leaf leaf-1"></div>
+        <div class="decorative-leaf leaf-2"></div>
+
+        <!-- Confetti particles -->
+        <div class="confetti-container" id="confettiContainer"></div>
+    </div>
+
+    <script>
+        // Generate random stars
+        function generateStars() {
+            const container = document.getElementById('starsContainer');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = (Math.random() * 3 + 1) + 'px';
+                star.style.height = star.style.width;
+                star.style.opacity = Math.random() * 0.7 + 0.3;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // Generate confetti particles
+        function generateConfetti() {
+            const container = document.getElementById('confettiContainer');
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                container.appendChild(confetti);
+            }
+        }
+
+        // Initialize animations
+        generateStars();
+        generateConfetti();
+    </script>
+</body>
+</html>
