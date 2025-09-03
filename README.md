@@ -26,15 +26,15 @@ An interactive multiplayer game where teams explore planets and complete Sustain
    - Extract to your desired location
 
 2. **Install dependencies**
-   \`\`\`bash
+   ```bash
    cd sdg-galaxy-game
-   npm install
-   \`\`\`
+   npm install --legacy-peer-deps 
+   ```
 
 3. **Start the development server**
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 4. **Open your browser**
    - Navigate to `http://localhost:3000`
