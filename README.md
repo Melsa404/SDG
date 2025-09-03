@@ -138,10 +138,4 @@ sdg-galaxy-game/
 - Make sure localStorage is enabled in your browser
 - Try creating a new session if issues persist
 
-## Contributing
 
-This is an educational game focused on SDG awareness. Feel free to extend the missions, add new planets, or enhance the multiplayer features!
-
-## License
-
-Open source educational project - feel free to use and modify for learning purposes.
