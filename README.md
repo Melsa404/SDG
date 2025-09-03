@@ -67,9 +67,25 @@ An interactive multiplayer game where teams explore planets and complete Sustain
 - **Track Progress**: View the team panel to see real-time rankings
 - **Compete**: Watch the leaderboard to see how your team compares to others
 
+
+## Screen Shots
+Mutliplayer control
+![Mutliplayer control](./screenshots/7.png)
+Team Joining
+![Team Joining](./screenshots/6.png)
+Game Landing Page
+![Game Landing Page](./screenshots/5.png)
+Game session details
+![Game session details](./screenshots/4.png)
+Planetary Quiz Example
+![Planetary Quiz Example](./screenshots/3.png)
+Winning Badge example
+![Winning Badge example](./screenshots/2.png)
+Leaderboard
+![Leaderboard](./screenshots/1.png)
 ## Project Structure
 
-\`\`\`
+```
 sdg-galaxy-game/
 ├── app/
 │   ├── page.tsx          # Main game entry point
@@ -86,7 +102,9 @@ sdg-galaxy-game/
 ├── hooks/
 │   └── use-realtime-session.ts # Real-time session management
 └── README.md
-\`\`\`
+```
+
+
 
 ## Technologies Used
 
